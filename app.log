@@ -1,0 +1,12 @@
+2024-12-25 20:44:03,118eINFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-25 20:44:03,118eINFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-12-25 20:44:03,120eINFO werkzeug MainThread :  * Restarting with stat
+2024-12-25 20:44:03,922eWARNING werkzeug MainThread :  * Debugger is active!
+2024-12-25 20:44:03,925eINFO werkzeug MainThread :  * Debugger PIN: 114-466-844
+2024-12-25 20:49:34,757eINFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-25 20:49:34,757eINFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-12-25 20:49:34,759eINFO werkzeug MainThread :  * Restarting with stat
+2024-12-25 20:49:35,801eWARNING werkzeug MainThread :  * Debugger is active!
+2024-12-25 20:49:35,840eINFO werkzeug MainThread :  * Debugger PIN: 114-466-844

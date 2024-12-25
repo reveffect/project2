@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Проверка Погоды по Маршруту</title>
+    <style>
+        /* Любимые стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px; /* Ограничение максимальной ширины */
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #2980b9; /* Новый цвет для меток */
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px); /* Учет отступов */
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid black; /* Более яркая рамка */
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #1abc9c; /* Цвет рамки при фокусе */
+            box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
+            outline: none;
+        }
+        button {
+            width: calc(100% - 20px);
+            padding: 14px;
+            background-color: #e74c3c; /* Новый цвет кнопки */
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #c0392b; /* Цвет кнопки при наведении */
+            transform: translateY(-1px);
+        }
+        .flash-message {
+            background-color: #ffdddd; /* Цвет фона для сообщения */
+            color: #d8000c; /* Цвет текста для сообщения */
+            padding: 12px; /* Внутренние отступы */
+            border-radius: 5px; /* Скругление углов */
+            margin-bottom: 20px; /* Отступ снизу */
+            border-left: 4px solid #d8000c; /* Левый бордер */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Погода</h2>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              <div class="flash-message">
+                  {% for message in messages %}
+                      <p>{{ message }}</p>
+                  {% endfor %}
+              </div>
+          {% endif %}
+        {% endwith %}
+
+        <form action="/check_weather" method="POST" id="weatherForm">
+
+            <label for="start">Начальная точка:</label>
+            <input type="text" id="start" name="start" placeholder="Введите начальную точку" required>
+
+            <label for="end">Конечная точка:</label>
+            <input type="text" id="end" name="end" placeholder="Введите конечную точку" required>
+
+            <button type="submit">Проверить Погоду</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Погодные Результаты</title>
+    <style>
+        /* Основные стили для страницы результатов */
+        body {
+            font-family: 'Verdana', sans-serif;
+            background: linear-gradient(to right, #ff6a6a, #f0e130);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .results-box {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 35px;
+            width: 100%;
+            max-width: 500px; /* Ограничение ширины */
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .location-info {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 5px solid #3498db; /* Левый бордер для выделения */
+            background-color: #f9f9f9; /* Цвет фона для секции */
+        }
+        .location-info h3 {
+            color: #2980b9; /* Цвет заголовка */
+        }
+        .location-info p {
+            margin: 5px 0;
+            color: #333333; /* Цвет текста */
+        }
+        .weather-status {
+            background-color: #d4edda; /* Цвет фона для статуса погоды */
+            color: #155724; /* Цвет текста для статуса */
+            padding: 10px;
+            border-radius: 5px; /* Скругление углов */
+            margin-top: 8px;
+        }
+        .return-button {
+            display: block;
+            width: calc(100% - 30px);
+            padding: 12px;
+            background-color: #e67e22; /* Новый цвет кнопки */
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none; /* Убираем подчеркивание */
+            margin-top: 30px; /* Отступ сверху */
+            transition: background-color 0.3s, transform 0.2s; /* Эффекты при наведении */
+        }
+        .return-button:hover {
+            background-color: #d35400; /* Цвет кнопки при наведении */
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="results-box">
+        <h1>Результаты Погоды</h1>
+
+        <div class="location-info">
+            <h3>Стартовая точка: {{ start_city }}</h3>
+            <p><strong>Температура:</strong> {{ temperature_start }}°C</p>
+            <p><strong>Скорость ветра:</strong> {{ wind_speed_start }} км/ч</p>
+            <p><strong>Вероятность дождя:</strong> {{ precip_prob_start }}%</p>
+            <div class="weather-status">
+                <strong>Состояние погоды:</strong> {{ weather_status_start }}
+            </div>
+        </div>
+
+        <div class="location-info">
+            <h3>Финишная точка: {{ end_city }}</h3>
+            <p><strong>Температура:</strong> {{ temperature_end }}°C</p>
+            <p><strong>Скорость ветра:</strong> {{ wind_speed_end }} км/ч</p>
+            <p><strong>Вероятность дождя:</strong> {{ precip_prob_end }}%</p>
+            <div class="weather-status">
+                <strong>Состояние погоды:</strong> {{ weather_status_end }}
+            </div>
+        </div>
+
+        <a href="{{ url_for('home') }}" class="return-button">Назад к форме</a>
+    </div>
+</body>
+</html>
